@@ -96,16 +96,13 @@ for i in range(len(user_ids)):
     wea, tem, temh = get_weather(citys[i])
     cit, dat = get_city_date(citys[i])
     data = {
-        "date": {"value": "今日日期：{}".format(dat), "color": get_random_color()},
-        "weather": {"value": "今日天气：{}".format(wea), "color": get_random_color()},
-        "temperature": {"value": "最低温度：{}".format(tem), "color": get_random_color()},
-        "temperatureh": {"value": "最高温度：{}".format(temh), "color": get_random_color()},
-        "love_day": {"value": "今天是你们在一起的第{}天".format(get_count(start_dates[i])), "color": get_random_color()},
-        "birthday_left": {"value": "距离她的生日还有{}天".format(get_birthday(birthdays[i])), "color": get_random_color()},
-        "words": {"value": get_words(), "color": get_random_color()}
-    }
-    print(data)
-    if get_birthday(birthdays[i]) == 0:
-        data["birthday_left"]['value'] = "今天是她的生日哦，快去一起甜蜜吧"    
+        "date": {"value": dat},
+        "weather": {"value": wea},
+        "temperature": {"value": tem},
+        "temperatureh": {"value": temh},
+        "love_day": {"value": get_count(start_dates[i])},
+        "birthday_left": {"value":get_birthday(birthdays[i])},
+        "words": {"value": get_words()}
+    }    
     res = wm.send_template(user_ids[i], template_ids[i], data)
     print(res)
