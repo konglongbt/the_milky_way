@@ -105,6 +105,7 @@ for i in range(len(user_ids)):
         "birthday_left": {"value": "距离她的生日还有{}天".format(get_birthday(birthdays[i])), "color": get_random_color()},
         "words": {"value": get_words(), "color": get_random_color()}
     }
+    print(data)
     if get_birthday(birthdays[i]) == 0:
         data["birthday_left"]['value'] = "今天是她的生日哦，快去一起甜蜜吧"
     res = wm.send_template(user_ids[i], template_ids[i], data)
