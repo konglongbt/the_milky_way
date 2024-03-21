@@ -107,6 +107,6 @@ for i in range(len(user_ids)):
     print(data)
     if get_birthday(birthdays[i]) == 0:
         data["birthday_left"]['value'] = "今天是她的生日哦，快去一起甜蜜吧"
-    data={"date": {"value": "今日日期：2024-03-21","color": "#18822b"}}
+    data={"date":{"value":"今日日期：2024-03-21"}}
     res = wm.send_template(user_ids[i], template_ids[i], data)
     print(res)
