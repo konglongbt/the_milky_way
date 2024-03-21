@@ -32,7 +32,7 @@ def get_weather(city_id):
                       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
     }
     url = "http://d1.weather.com.cn/dingzhi/{}.html?_={}".format(city_id, t)
-    response = get(url, headers=headers)
+    response = requests.get(url, headers=headers)
     response.encoding = "utf-8"
     response_data = response.text.split(";")[0].split("=")[-1]
     response_json = eval(response_data)
